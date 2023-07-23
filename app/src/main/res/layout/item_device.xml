@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvAddressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDeviceAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="C4:6E:O3:B3:C1:0P"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAddressTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvAddressTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvAddressTitle" />
+
+    <TextView
+        android:id="@+id/tvRssiTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="RSSI :"
+        app:layout_constraintStart_toStartOf="@+id/tvAddressTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressTitle" />
+
+    <TextView
+        android:id="@+id/tvDeviceRssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="-50 dBm"
+        app:layout_constraintStart_toEndOf="@+id/tvRssiTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeviceAddress" />
+
+    <TextView
+        android:id="@+id/tvTimestampTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Timestamp:"
+        app:layout_constraintStart_toStartOf="@+id/tvRssiTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvRssiTitle" />
+
+    <TextView
+        android:id="@+id/tvDeviceDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="1212111213"
+        app:layout_constraintStart_toEndOf="@+id/tvTimestampTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeviceRssi" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimestampTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>
