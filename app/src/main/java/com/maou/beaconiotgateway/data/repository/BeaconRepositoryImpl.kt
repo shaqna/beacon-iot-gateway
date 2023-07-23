@@ -22,14 +22,14 @@ class BeaconRepositoryImpl(
     override suspend fun sendBeaconData(bleDevice: BleDevice): Flow<BaseResult<String, String>> =
         flow {
             val item = Item(
-                timeStamp = bleDevice.timestamp,
+                timeStamp = bleDevice.timestamp.toString(),
                 beaconAddress = bleDevice.deviceAddress,
                 rssi = bleDevice.rssi
             )
             val response = apiService.sendBeaconData(BeaconRequest(payload = Payload(item)))
             Log.d("Repository", "response code ${response.code}")
             if (response.code != 200) {
-                emit(BaseResult.Error(response.message))
+                emit(BaseResult.Error("Gagal"))
             }
 
             emit(BaseResult.Success(response.message))

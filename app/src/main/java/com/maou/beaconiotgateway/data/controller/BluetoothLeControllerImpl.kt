@@ -21,7 +21,9 @@ class BluetoothLeControllerImpl(
 ) : BluetoothLeController {
 
     companion object {
-        const val BEACON_ADDRESS_TARGET = "C1:43:C1:7D:B3:C4"
+        const val BEACON_LEMON = "C1:43:C1:7D:B3:C4"
+        const val BEACON_COCONUT = "C8:BF:9D:4C:8E:EB"
+
     }
 
     private val bluetoothAdapter: BluetoothAdapter by lazy {
@@ -38,17 +40,17 @@ class BluetoothLeControllerImpl(
         .build()
 
     private val bleScanCallback = BleScanCallback { result ->
-        if(result.device.address == BEACON_ADDRESS_TARGET) {
+        if(result.device.address == BEACON_COCONUT) {
             _scannedDevice.update { bleDevices ->
                 val newDevice = BleDevice(
                     deviceAddress = result.device.address,
                     rssi = result.rssi,
                     timestamp = result.timestampNanos
                 )
-                Log.d(MainActivity.TAG, newDevice.toString())
+                Log.d("BLE Controller", newDevice.toString())
                 bleDevices + newDevice
             }
-            Log.d(MainActivity.TAG, _scannedDevice.value.size.toString())
+            Log.d("BLE Controller", _scannedDevice.value.size.toString())
         }
 
     }

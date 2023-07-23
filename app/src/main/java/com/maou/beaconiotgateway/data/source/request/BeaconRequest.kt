@@ -17,7 +17,7 @@ data class Payload(
 
 data class Item(
     @field:Json(name="time_stamp")
-    val timeStamp: Long,
+    val timeStamp: String,
 
     @field:Json(name = "beacon_address")
     val beaconAddress: String,
